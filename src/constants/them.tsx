@@ -1,22 +1,27 @@
 import { Dimensions } from "react-native";
+import { useThemeColor } from "../components/functions";
 const { width, height } = Dimensions.get("window");
+
+const backgroundColor = useThemeColor({ light: '#1E1F20', dark: '#FFFFFF' }, 'background');
+const textColor = useThemeColor({ light: '#FFFFFF', dark: '#1E1F20' }, 'text');
 
 export const colors = {
     primary: "#00996D",
     primaryDark2: "#24C16B",
     secondaryDark2: "#0C381F",
+    appBule:'#5669FF',
+    appBule2:'#3D56F0',
+    appBule3:'#4A43EC',
+    appBule4:'#5D56F3',
     lime: "#00BA63",
-    emerald: "#2BC978",
     green: "#66D59A",
+    green2: '#29D697',
     darkgreen: '#008159',
     primaryDark: "#194868",
     white: "#FFFFFF",
+    white2: "#ffffffb3",
     lightGray: "#eff2f5",
-    lightGray2: '#FAFBFD',
-    lightGray3: "#EFEFF1",
-    lightGray4: "#F8F8F9",
     lightRed: "#FFF1F0",
-    lightpurple: "#F3EFFF",
     lightyellow: "#FFF9EC",
     lightGreen: "#E6FEF0",
     gray: "#BEC1D2",
@@ -27,12 +32,18 @@ export const colors = {
     darkgray: '#898C95',
     black: "#1E1F20",
     blue: '#42B0FF',
+    cyan: '#46CDFB',
+    cyan2: '#389cdf40',
     yellow: '#FFD573',
+    orange: '#F59762',
     red: '#FF0000',
     peach: '#FF615F',
-    red2: "#FF4134",
+    red2: "#FF4134", 
+    red3: "#F0635A", 
     purple: '#8e44ad',
     transparent: "transparent",
+    backgroundColor,
+    textColor
 };
 export const sizes = {
     // global sizes
@@ -45,15 +56,20 @@ export const sizes = {
     padding2: 12,
     padding3: 15,
 
+    // icon sizes 
+    icon:20,
+    icon2:25,
+    icon3:30,
+
     // font sizes
     largeTitle: 50,
     h1: 30,
-    h2: 22,
+    h2: 18,
     h3: 16,
     h4: 14,
     h5: 18,
     body1: 30,
-    body2: 22,
+    body2: 18,
     body3: 16,
     body4: 14,
     body5: 12,

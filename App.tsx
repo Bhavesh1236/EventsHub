@@ -1,14 +1,12 @@
-import React,{ useEffect } from 'react';
 import 'react-native-gesture-handler';
+import React,{ useEffect } from 'react';
 import { StyleSheet, Text, View,LogBox } from 'react-native';
 import { NavigationContainer, DarkTheme, NavigationProp, CommonActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useFonts } from 'expo-font';
-
-import LanuchScreen from './src/screens/LanuchScreen';
-import Home from './src/screens/Home';
-import Onboarding from './src/screens/Onboarding';
 import { colors } from './src/constants/them';
+import { Login,LanuchScreen,Onboarding,Signup,Varification,ForgetPassword, EventsList, EventsDetailes, EventsSearch } from './src/screens';
+import BottamTab from './src/routes/BottamTab';
 
 const Stack = createStackNavigator();
 const theme = {
@@ -39,18 +37,16 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='LanuchScreen' screenOptions={{ headerShown:false }}>
         <Stack.Screen name='LanuchScreen' component={LanuchScreen} />
-        <Stack.Screen name='Onboarding' component={Onboarding} />        
-        <Stack.Screen name='Home' component={Home} />        
+        <Stack.Screen name='Onboarding' component={Onboarding} />
+        <Stack.Screen name='Login' component={Login} />        
+        <Stack.Screen name='Signup' component={Signup} />        
+        <Stack.Screen name='Varification' component={Varification} />        
+        <Stack.Screen name='ForgetPassword' component={ForgetPassword} />
+        <Stack.Screen name='EventsDetailes' component={EventsDetailes} />
+        <Stack.Screen name='EventsList' component={EventsList} />
+        <Stack.Screen name='EventsSearch' component={EventsSearch} />
+        <Stack.Screen name='BottamTab' component={BottamTab} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

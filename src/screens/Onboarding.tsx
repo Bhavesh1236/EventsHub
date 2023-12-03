@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, FlatList, Dimensions, TouchableOpacity,Text, Image } from 'react-native';
+import { View, FlatList, Dimensions, TouchableOpacity, Image } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 import styles from '../assets/styles'
 import { Onboardings } from '../constants/constant'
 import { colors } from '../constants/them';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { AppText, AppView } from '../components';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 interface props {
@@ -19,12 +20,12 @@ const Onboarding:React.FC<props> = ({navigation}) => {
     if (event.nativeEvent.state === State.END && currentIndex >= 0 && currentIndex < Onboardings.length) {
       const offsetX = event.nativeEvent.translationX;      
       const newIndex =  offsetX > 0 ? currentIndex - 1 : currentIndex + 1;     
-      if(currentIndex < Onboardings.length && currentIndex >= 0 ){
+      if(currentIndex < Onboardings.length && currentIndex >= 0 && newIndex >= 0 && newIndex < Onboardings.length ){
         setCurrentIndex(newIndex);
-      }else if(currentIndex >= 0){
+      }else if(currentIndex >= 0 && newIndex < Onboardings.length){
         setCurrentIndex(0);
-      } else if(currentIndex < Onboardings.length){
-        setCurrentIndex(currentIndex)
+      } else {
+        setCurrentIndex(Onboardings.length - 1)
       }
     }
   };
@@ -37,40 +38,27 @@ const Onboarding:React.FC<props> = ({navigation}) => {
 
   const renderItem = ({ item,index }) => {
     return (
-      <TouchableOpacity
-        style={{ width: SCREEN_WIDTH, alignItems: 'center', justifyContent: 'center',}}
-        activeOpacity={0.9}
-      >
+      <AppView style={{ width: SCREEN_WIDTH }}>
         <Image source={item.image} style={styles.imgTop}/>
         <View style={styles.imgModal}>
-          <Text style={styles.txtTitle}>{item.title}</Text>
-          <Text style={styles.txtDis}>{item.disscription}</Text>
+          <AppText style={styles.txtTitle}>{item.title}</AppText>
+          <AppText style={styles.txtDis}>{item.disscription}</AppText>
         </View>
         <View style={styles.btnView}>
-          <TouchableOpacity activeOpacity={0.9} onPress={()=>navigation.reset({index: 0,routes: [{ name: 'Home' }],})}><Text style={styles.txtBtn}>Skip</Text></TouchableOpacity>
-          <View style={styles.btnOval}>{Onboardings.map((data)=> <View style={data.id == item.id ? styles.directional1 : styles.directional2} />)}</View>
-          <TouchableOpacity activeOpacity={0.9} disabled={item.id == Onboardings.length?true:false} onPress={()=>setCurrentIndex(currentIndex + 1)}><Text style={[styles.txtBtn,{color:item.id == Onboardings.length? colors.darkgray : colors.white}]}>Next</Text></TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.9} onPress={()=>navigation.reset({index: 0,routes: [{ name: 'Login' }],})}><AppText style={styles.txtBtn}>Skip</AppText></TouchableOpacity>
+          <View style={styles.btnOval}>{Onboardings.map((data)=> <View key={data.id } style={data.id == item.id ? styles.directional1 : styles.directional2} />)}</View>
+          <TouchableOpacity activeOpacity={0.9} disabled={item.id == Onboardings.length?true:false} onPress={()=>setCurrentIndex(currentIndex + 1)}><AppText style={[styles.txtBtn,{color:item.id == Onboardings.length? colors.darkgray : colors.white}]}>Next</AppText></TouchableOpacity>
         </View>
-      </TouchableOpacity>
+      </AppView>
     );
   };
 
   return (
-    <View style={styles.appContainer}>
+    <AppView style={styles.appContainer}>
       <PanGestureHandler onHandlerStateChange={handleGestureEvent}>
-        <FlatList
-          ref={scrollRef}
-          data={Onboardings}
-          renderItem={renderItem}
-          horizontal
-          pagingEnabled
-          showsHorizontalScrollIndicator={false}
-          scrollEnabled={false}
-          keyExtractor={(_, index) => index.toString()}
-          initialScrollIndex={currentIndex}
-        />
+        <FlatList ref={scrollRef} data={Onboardings} renderItem={renderItem} horizontal pagingEnabled={true} showsHorizontalScrollIndicator={false} scrollEnabled={false} keyExtractor={(_, index) => index.toString()} initialScrollIndex={currentIndex} />
       </PanGestureHandler>
-    </View>
+    </AppView>
   )
 }
 
