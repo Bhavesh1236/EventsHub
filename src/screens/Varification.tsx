@@ -13,8 +13,7 @@ interface props{
 
 const Varification:React.FC<props> = ({ navigation }) => {
   const [state, setState] = useState({
-    number: '+91 7096394852',
-    time: '0:20'
+    email: 'kumarkhaniya1236@gmail.com',
   })
   return (
     <AppView style={{flex:1}}>
@@ -29,16 +28,12 @@ const Varification:React.FC<props> = ({ navigation }) => {
             </View>
             <View style={{width:'100%',alignItems:'flex-start',paddingHorizontal: '10%', marginBottom: '5%'}}>
                 <AppText style={{marginBottom:20, fontSize:28, fontWeight: '500', fontFamily: 'Roboto-Bold'}}>Varifaction</AppText>
-                <AppText style={{marginBottom:20, fontSize:22, fontWeight: '100', fontFamily: 'Roboto-Medium'}}>{`we've send you the verifation cpde on ${state.number}`}.</AppText>
+                <AppText style={{marginBottom:20, fontSize:22, fontWeight: '100', fontFamily: 'Roboto-Medium'}}>we've send you the verifation cpde on
+                  <AppText> {state.email}.</AppText>
+                </AppText>
             </View>
-            <AppTextInput iconLeftType='Feather' iconLeft='mail' placeholder='abc@gmail.com' />
+            <AppTextInput iconLeftType='Feather' iconLeft='mail' placeholder='OPT Code' />
             <AppButtion title="CONTINUE" onPress={()=> navigation.reset({routes: [{ name: 'BottamTab' }],})} />
-            <View style={{flexDirection:'row'}}>
-              <AppText>Re-send code in </AppText>
-              <TouchableOpacity onPress={() => console.log(" is call time expand")}>
-                <AppText style={{color:colors.darkgreen}}>{state.time}.</AppText>
-              </TouchableOpacity>
-            </View>
         </View>
     </AppView>
   )

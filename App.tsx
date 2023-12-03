@@ -5,7 +5,7 @@ import { NavigationContainer, DarkTheme, NavigationProp, CommonActions } from '@
 import { createStackNavigator } from '@react-navigation/stack';
 import { useFonts } from 'expo-font';
 import { colors } from './src/constants/them';
-import { Login,LanuchScreen,Onboarding,Signup,Varification,ForgetPassword } from './src/screens';
+import { Login,LanuchScreen,Onboarding,Signup,Varification,ForgetPassword, EventsList, EventsDetailes, EventsSearch } from './src/screens';
 import BottamTab from './src/routes/BottamTab';
 
 const Stack = createStackNavigator();
@@ -42,6 +42,9 @@ export default function App() {
         <Stack.Screen name='Signup' component={Signup} />        
         <Stack.Screen name='Varification' component={Varification} />        
         <Stack.Screen name='ForgetPassword' component={ForgetPassword} />
+        <Stack.Screen name='EventsDetailes' component={EventsDetailes} />
+        <Stack.Screen name='EventsList' component={EventsList} />
+        <Stack.Screen name='EventsSearch' component={EventsSearch} />
         <Stack.Screen name='BottamTab' component={BottamTab} />
       </Stack.Navigator>
     </NavigationContainer>
