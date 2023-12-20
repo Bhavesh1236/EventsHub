@@ -97,7 +97,7 @@ const Maps:React.FC<props> = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{position:'absolute', bottom:0, width:'100%', height:'25%'}}>
-        <FlatList data={state.Events} horizontal pagingEnabled={true} showsHorizontalScrollIndicator={false} keyExtractor={(item, index) => `${item.id+index}`} renderItem={({item,index})=> renderEvents(item, index)}/>
+        <FlatList data={state.Events} horizontal showsHorizontalScrollIndicator={false} keyExtractor={(item, index) => `${item.id+index}`} renderItem={({item,index})=> renderEvents(item, index)}/>
       </View>
     </AppView>
   )

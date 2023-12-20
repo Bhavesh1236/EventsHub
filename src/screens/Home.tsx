@@ -30,11 +30,11 @@ const Home: React.FC<Props> = ({ navigation }) => {
   const renderHeader = () => {
     return(
       <View style={styles.appHeader}>
-        <View style={{flexDirection:'row',marginVertical:30,justifyContent: 'space-between', marginHorizontal:20,alignItems:'center'}}>
+        <View style={{flexDirection:'row',marginTop:50,marginBottom: 30,justifyContent: 'space-between', marginHorizontal:20,alignItems:'center'}}>
           <TouchableOpacity onPress={()=> navigation.openDrawer()}>
             <AppIcons type='AntDesign' name='menu-fold' color={colors.backgroundColor} size={20}/>
           </TouchableOpacity>
-          <View style={{alignItems:'center'}}>
+          <View style={{alignItems:'center', }}>
             <TouchableOpacity style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
               <AppText>Current Location</AppText>
               <AppIcons type='AntDesign' name='caretdown' color={colors.backgroundColor} size={15} />
@@ -47,7 +47,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <AppSearch />
-        <ScrollView horizontal style={{position:'absolute',top:170,left:10,}}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{position:'absolute',top:170,left:10,}}>
           {filter.map((item,index)=> filterItem(item,index))}
         </ScrollView>
       </View>
@@ -102,7 +102,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
         </View>
 
         {/* Display Events List */}
-        <FlatList data={state.Events} style={{marginTop: sizes.padding, maxHeight:280,}} horizontal keyExtractor={(item, index) => `${item.id+index}`} renderItem={({item,index})=> renderEvents(item, index)}/>
+        <FlatList data={state.Events} style={{marginTop: sizes.padding, maxHeight:280,}} horizontal showsHorizontalScrollIndicator={false} keyExtractor={(item, index) => `${item.id+index}`} renderItem={({item,index})=> renderEvents(item, index)}/>
         
         {/* Invite your friends */}
         <View style={{backgroundColor:'#0ae3ef3b', width: '100%', height:135, padding:20, borderRadius: 15, justifyContent:'space-between'}}>

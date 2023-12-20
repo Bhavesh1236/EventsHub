@@ -16,14 +16,14 @@ const EventsDetailes: React.FC<props> = ({navigation}) => {
     return (
       <AppView style={{flex:1}}>
           <ImageBackground source={events.image} resizeMode='stretch' imageStyle={{ borderBottomLeftRadius: 40, borderBottomRightRadius: 40}} style={{width:'100%', height:250}}>
-              <View style={{flexDirection:'row', paddingTop:35,alignContent:'space-between'}}>
+              <View style={{flexDirection:'row', paddingTop:50,alignContent:'space-between'}}>
                 <View style={{flexDirection:'row',alignItems:'center'}}>
                   <TouchableOpacity style={{ padding:10, backgroundColor: '#4548', borderRadius: 15, marginLeft:20,marginRight:10}} onPress={()=> navigation.goBack()}>
                     <AppIcons color={colors.white} size={20} type='Feather' name='arrow-left' />
                   </TouchableOpacity>
                   <AppText style={styles.font1}>Event Details</AppText>
                 </View>
-                <TouchableOpacity style={{ padding:10, backgroundColor: '#4548',marginLeft:50, borderRadius: 15, }}>
+                <TouchableOpacity style={{ padding:10, backgroundColor: '#4548',position:'absolute', top:50, right: 20, borderRadius: 15, }}>
                   <AppIcons type='Ionicons' name={'bookmark'} size={18} color={colors.appBule3} />
                 </TouchableOpacity>
               </View>

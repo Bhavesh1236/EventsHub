@@ -1,10 +1,10 @@
 # Events Hub 
 
-Take control of your finances with FinanceApp, the ultimate mobile app designed to simplify your financial life. Whether you're a savvy investor, a budget-conscious individual, or just someone who wants to make smarter money decisions, FinanceApp is your go-to companion.
+Take control of your events for Conferences events, Workshops events, Charity events, and Product launch events with Events Hub app, the ultimate mobile app designed to simplify your handle events.
 
 # Hey there :wave:
 
-This application is based on [Figma design templates](https://www.figma.com/file/vNLzGGnpbMDLb3DR5mjVwB/Finance-Mobile-App-(Community)-(Copy)?type=design&node-id=1%3A157&mode=design&t=OM8yGHypwieh26bW-1) :thumbsup: and thanks to this designer.
+This application is based on [Figma design templates](https://www.figma.com/file/55N9GuoNhgMrioiVFmSvUt/Event-Booking-App--EventHub-(Community)?type=design&t=Aqa1RYovodqXIlO8-6) :thumbsup: and thanks to this designer.
 
 # App Cover Screenshots
 
